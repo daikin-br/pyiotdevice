@@ -1,6 +1,6 @@
 build/*
 dist/*
-pydaikin.egg-info/*
+pyiotdevice.egg-info/*
 __pycache__
 .eggs/*
 .vscode/*
