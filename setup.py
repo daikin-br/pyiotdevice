@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="pyiotdevice",
-    version="1.0.13",
+    version="1.0.14",
     packages=find_packages(),
     install_requires=[
         "pycryptodome",
@@ -12,7 +12,12 @@ setup(
     description="A Python library for IoT device security and communication",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/pyiotdevice",
+    url="https://github.com/daikin-br/pyiotdevice",
+    project_urls={
+        "Source": "https://github.com/daikin-br/pyiotdevice",
+        "Bug Tracker": "https://github.com/daikin-br/pyiotdevice/issues",
+        "GitHub Stats": "https://github-readme-stats.vercel.app/api?username=daikin-br&repo=pyiotdevice",
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
