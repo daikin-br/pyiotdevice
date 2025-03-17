@@ -1,0 +1,12 @@
+build/*
+dist/*
+pydaikin.egg-info/*
+__pycache__
+.eggs/*
+.vscode/*
+.cache/
+.idea/
+*.pyc
+venv/
+env/
+.coverage
