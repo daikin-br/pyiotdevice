@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="pyiotdevice",
-    version="1.0.14",
+    version="1.0.17",
     packages=find_packages(),
     install_requires=[
         "pycryptodome",
