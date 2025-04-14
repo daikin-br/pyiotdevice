@@ -9,7 +9,7 @@ It also provides generic device specific helper functions.
 
 """
 
-from typing import Optional
+from typing import Optional, Union
 
 # Mapping of device HVAC mode values to HA HVAC mode strings.
 DAIKIN_TO_HA_HVAC_MODE_MAPPING = {
@@ -76,4 +76,34 @@ def map_hvac_mode(hvac_value: int) -> str:
 
 def prepare_device_payload(**kwargs) -> dict:
     """Prepare payload dictionary for device communication."""
-    return {"port1": kwargs}
+    # Copy the provided keyword arguments
+    payload = dict(kwargs)
+
+    mode_value = HA_TO_DAIKIN_HVAC_MODE_MAPPING.get("dry")
+    if payload.get("mode") == mode_value:
+        payload["fan"] = HA_TO_DAIKIN_FAN_SPEED_MAPPING.get("auto")
+
+    return {"port1": payload}
+
+
+def validate_temperature(
+    temperature_value: Optional[Union[float, int]],
+    min_temp: float = 10.0,
+    max_temp: float = 32.0,
+    default_temp: int = 24,
+) -> int:
+    """Validate and return a temperature value within the allowed range.
+
+    Args:
+        temperature_value (Optional[Union[float, int]]): The temperature to validate.
+        min_temp (float): Minimum allowed temperature.
+        max_temp (float): Maximum allowed temperature.
+        default_temp (int): Default fallback temperature.
+
+    Returns:
+        int: A valid temperature value.
+    """
+    if isinstance(temperature_value, (int, float)):
+        if min_temp <= temperature_value <= max_temp:
+            return int(temperature_value)
+    return default_temp

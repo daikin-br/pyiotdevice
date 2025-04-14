@@ -8,6 +8,7 @@ from .device_utils import (
     map_fan_speed,
     map_hvac_mode,
     prepare_device_payload,
+    validate_temperature,
 )
 from .get_hostname import get_hostname
 from .get_thing_info import async_get_thing_info, get_thing_info
@@ -29,4 +30,5 @@ __all__ = [
     "map_fan_speed",
     "map_hvac_mode",
     "prepare_device_payload",
+    "validate_temperature",
 ]
